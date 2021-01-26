@@ -1,0 +1,63 @@
+html,body {
+    overflow: hidden;
+}
+  
+// 切换导航loading
+.loading-bar {
+    position: fixed;
+    top: 0;
+    height: 2px;
+    background: #36D1DC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+    z-index: 9999;
+    width: 0;
+    animation: loading 2s infinite forwards;
+  }
+  
+  @keyframes loading {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  // 切换导航loading
+.main-content {
+    padding: 24px;
+    background: #fff;
+    min-height: 800px;
+    display: flex;
+    justify-content: space-between;
+    .tree-content {
+        min-width: 12vw;
+      }
+      .table-content {
+        width: 85vw;
+        margin-left: 20px;
+        
+      }
+}
+.tableTop {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+// ant vue table style start
+.ant-modal-body {
+    padding: 10px;
+    background: #fbfbfb;
+}
+
+.ant-advanced-search-form .ant-form-item {
+    display: flex;
+}
+
+.ant-advanced-search-form .ant-form-item-control-wrapper {
+    flex: 1;
+}
+// ant vue table style end
