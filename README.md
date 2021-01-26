@@ -1,4 +1,4 @@
-# my-app
+# ant-vue-design-pro
 
 ## Project setup
 ```

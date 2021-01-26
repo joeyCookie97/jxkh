@@ -75,46 +75,129 @@ const table = {
                 title: "编号",
                 dataIndex: "id",
                 align: "center",
-              },
-              {
+            },
+            {
                 title: "名称",
                 dataIndex: "name",
                 align: "center",
                 scopedSlots: { customRender: "name" },
-              },
-              {
+            },
+            {
                 title: "初始分值",
                 dataIndex: "initScore",
                 align: "center",
-              },
-              {
+            },
+            {
                 title: "加减分类型",
                 dataIndex: "addAndSubType",
                 align: "center",
-              },
-              {
+            },
+            {
                 title: "计分方式",
                 dataIndex: "integralWay",
                 align: "center",
-              },
-              {
+            },
+            {
                 title: "适用对象",
                 dataIndex: "applicableObjects",
                 align: "center",
-              },
-              {
+            },
+            {
                 title: "是否启用",
                 dataIndex: "enabled",
                 align: "center",
                 scopedSlots: { customRender: "enabled" },
-              },
-              {
+            },
+            {
                 title: "操作",
                 dataIndex: "operation",
                 align: "center",
                 scopedSlots: { customRender: "operation" },
-              },
+            },
         ],
+        permission: [
+            // {
+            //     title: "页面编号",
+            //     dataIndex: "id",
+            //     key: 'id',
+            //     align: "center",
+            // },
+            {
+                title: "页面名称",
+                dataIndex: "name",
+                key: 'name',
+                align: "center",
+                scopedSlots: { customRender: "name" }
+            },
+            {
+                title: "页面地址",
+                dataIndex: "path",
+                key: 'path',
+                align: "center",
+            },
+            {
+                title: "操作",
+                dataIndex: "operation",
+                align: "center",
+                scopedSlots: { customRender: "operation" },
+            },
+        ],
+        khtb: [
+            // {
+            //     title: "编号",
+            //     dataIndex: "id",
+            //     key: 'id',
+            //     align: "center",
+            // },
+            {
+                title: "填报人员",
+                dataIndex: "name",
+                key: 'name',
+                align: "center",
+            },
+            {
+                title: "指标项",
+                dataIndex: "zbx",
+                key: 'zbx',
+                align: "center",
+            },
+            {
+                title: "分值",
+                dataIndex: "score",
+                key: 'score',
+                align: "center",
+            },
+            {
+                title: "填报时间",
+                dataIndex: "startTime",
+                key: 'startTime',
+                align: "center",
+            },
+            {
+                title: "修改时间",
+                dataIndex: "updateTime",
+                key: 'updateTime',
+                align: "center",
+            },
+            {
+                title: "对应考核周期",
+                dataIndex: "cycle",
+                key: 'cycle',
+                align: "center",
+            },
+            {
+                title: "是否启用",
+                dataIndex: "enabled",
+                align: "center",
+                scopedSlots: { customRender: "enabled" },
+            },
+            {
+                title: "操作",
+                dataIndex: "operation",
+                align: "center",
+                scopedSlots: { customRender: "operation" },
+            },
+        ]
     }
 }
 

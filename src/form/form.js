@@ -13,6 +13,9 @@ const form = {
         },
         targetMetaData: {
             title: [{ required: true,message: "名称必填", }]
+        },
+        permission: {
+            name: [{ required: true,message: "名称必填", }]
         }
     },
     form: {
@@ -46,6 +49,12 @@ const form = {
             scoreType: "",
             applicableObjects: "",
             enabled: '',
+        },
+        permission: {
+            name: '',
+            path: '',
+            des: '',
+            parent: ''
         }
     }
 }
