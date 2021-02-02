@@ -1,6 +1,9 @@
 <template>
   <div>
-    <a-input-search placeholder="请输入内容查询" @change="onChange" />
+    <a-input-search
+      placeholder="请输入内容查询"
+      @change="onChange"
+    />
     <a-tree
       :expanded-keys="expandedKeys"
       :tree-data="gData"
@@ -8,8 +11,11 @@
       :show-icon="true"
       @expand="onExpand"
     >
-      <template v-slot:title='item'>
-        <a-icon :style="{ color: '#1890ff' }" type="folder-open" />
+      <template v-slot:title="item">
+        <a-icon
+          :style="{ color: '#1890ff' }"
+          type="folder-open"
+        />
         <span v-if="(item.score ? `${item.title}(${item.score})分` : `${item.title}`).indexOf(searchValue) > -1">
           {{ (item.score ? `${item.title}(${item.score})分` : `${item.title}`).substr(0, (item.score ? `${item.title}(${item.score})分` : `${item.title}`).indexOf(searchValue)) }}
           <span style="color: #f50">{{ searchValue }}</span>

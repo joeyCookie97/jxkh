@@ -1,6 +1,6 @@
 <template>
   <div class="main-content">
-    <Table :tableData="tableData" />
+    <Table :table-data="tableData" />
   </div>
 </template>
 

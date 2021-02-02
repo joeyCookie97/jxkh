@@ -13,7 +13,11 @@
         ]"
         placeholder="Username"
       >
-        <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
+        <a-icon
+          slot="prefix"
+          type="user"
+          style="color: rgba(0,0,0,.25)"
+        />
       </a-input>
     </a-form-item>
     <a-form-item>
@@ -25,7 +29,11 @@
         type="password"
         placeholder="Password"
       >
-        <a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
+        <a-icon
+          slot="prefix"
+          type="lock"
+          style="color: rgba(0,0,0,.25)"
+        />
       </a-input>
     </a-form-item>
     <a-form-item>
@@ -40,10 +48,17 @@
       >
         Remember me
       </a-checkbox>
-      <a class="login-form-forgot" href="">
+      <a
+        class="login-form-forgot"
+        href=""
+      >
         Forgot password
       </a>
-      <a-button type="primary" html-type="submit" class="login-form-button">
+      <a-button
+        type="primary"
+        html-type="submit"
+        class="login-form-button"
+      >
         Log in
       </a-button>
       Or

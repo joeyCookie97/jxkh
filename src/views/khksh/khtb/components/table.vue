@@ -2,10 +2,18 @@
   <div style="width: 100%">
     <div class="tableTop">
       <a-space>
-        <a-button icon="plus" type="primary" @click="targetClick({}, 'add')">
+        <a-button
+          icon="plus"
+          type="primary"
+          @click="targetClick({}, 'add')"
+        >
           新增
         </a-button>
-        <a-button icon="reload" type="default" @click="targetClick({}, 'add')">
+        <a-button
+          icon="reload"
+          type="default"
+          @click="targetClick({}, 'add')"
+        >
           刷新
         </a-button>
       </a-space>
@@ -18,27 +26,35 @@
 
     <a-table
       :columns="columns"
-      rowKey="id"
+      row-key="id"
       :loading="tableLoading"
       :data-source="tableData"
     >
       <template v-slot:name="text, record">
-        <a-button @click="targetClick(record, 'detail')" type="link">{{
-          text
-        }}</a-button>
+        <a-button
+          type="link"
+          @click="targetClick(record, 'detail')"
+        >
+          {{
+            text
+          }}
+        </a-button>
       </template>
       <template v-slot:operation="text, record">
-        <a-button @click="targetClick(record, 'update')" type="link"
-          >修改</a-button
+        <a-button
+          type="link"
+          @click="targetClick(record, 'update')"
         >
+          修改
+        </a-button>
       </template>
       <template v-slot:enabled="enabled">
         <a-switch
-          @change="isEnabled"
           size="small"
-          :defaultChecked="enabled"
+          :default-checked="enabled"
           checked-children="已启用"
           un-checked-children="已停用"
+          @change="isEnabled"
         />
       </template>
     </a-table>
@@ -47,35 +63,51 @@
       :title="modalTitle"
       width="1000px"
       :visible="visible"
+      :after-close="afterClose"
+      ok-text="确定"
+      cancel-text="取消"
       @ok="addSubmit"
       @cancel="closeModal"
-      :afterClose="afterClose"
-      okText="确定"
-      cancelText="取消"
     >
       <a-form-model
         ref="ruleForm"
         class="ant-advanced-search-form"
-        :labelCol="{ span: 7 }"
+        :label-col="{ span: 7 }"
         :model="form"
         :rules="rules"
       >
         <a-row :gutter="24">
           <a-col :span="8">
-            <a-form-model-item label="编号" prop="id">
-              <a-input :disabled="formDisabled" v-model="form.id" />
-            </a-form-model-item>
-          </a-col>
-          <a-col :span="8">
-            <a-form-model-item label="编码" prop="code">
-              <a-input :disabled="formDisabled" v-model="form.code" />
-            </a-form-model-item>
-          </a-col>
-          <a-col :span="8">
-            <a-form-model-item ref="title" label="名称" prop="title">
+            <a-form-model-item
+              label="编号"
+              prop="id"
+            >
               <a-input
+                v-model="form.id"
                 :disabled="formDisabled"
+              />
+            </a-form-model-item>
+          </a-col>
+          <a-col :span="8">
+            <a-form-model-item
+              label="编码"
+              prop="code"
+            >
+              <a-input
+                v-model="form.code"
+                :disabled="formDisabled"
+              />
+            </a-form-model-item>
+          </a-col>
+          <a-col :span="8">
+            <a-form-model-item
+              ref="title"
+              label="名称"
+              prop="title"
+            >
+              <a-input
                 v-model="form.title"
+                :disabled="formDisabled"
                 @blur="
                   () => {
                     $refs.title.onFieldBlur();
@@ -85,51 +117,102 @@
             </a-form-model-item>
           </a-col>
           <a-col :span="8">
-            <a-form-model-item label="详细描述" prop="des">
-              <a-input :disabled="formDisabled" v-model="form.des" />
-            </a-form-model-item>
-          </a-col>
-          <a-col :span="8">
-            <a-form-model-item label="计算公式" prop="jsgs">
-              <a-input :disabled="formDisabled" v-model="form.jsgs" />
-            </a-form-model-item>
-          </a-col>
-          <a-col :span="8">
-            <a-form-model-item label="初始分值" prop="initScore">
-              <a-input :disabled="formDisabled" v-model="form.initScore" />
-            </a-form-model-item>
-          </a-col>
-          <a-col :span="8">
-            <a-form-model-item label="最高分值" prop="highScore">
-              <a-input :disabled="formDisabled" v-model="form.highScore" />
-            </a-form-model-item>
-          </a-col>
-          <a-col :span="8">
-            <a-form-model-item label="分值" prop="score">
-              <a-input :disabled="formDisabled" v-model="form.score" />
-            </a-form-model-item>
-          </a-col>
-          <a-col :span="8">
-            <a-form-model-item label="加减分类型" prop="addAndSubType">
-              <a-input :disabled="formDisabled" v-model="form.addAndSubType" />
-            </a-form-model-item>
-          </a-col>
-          <a-col :span="8">
-            <a-form-model-item label="计分方式" prop="scoreType">
-              <a-input :disabled="formDisabled" v-model="form.scoreType" />
-            </a-form-model-item>
-          </a-col>
-          <a-col :span="8">
-            <a-form-model-item label="适用对象" prop="applicableObjects">
+            <a-form-model-item
+              label="详细描述"
+              prop="des"
+            >
               <a-input
+                v-model="form.des"
                 :disabled="formDisabled"
-                v-model="form.applicableObjects"
               />
             </a-form-model-item>
           </a-col>
           <a-col :span="8">
-            <a-form-model-item label="是否启用" prop="enabled">
-              <a-input :disabled="formDisabled" v-model="form.enabled" />
+            <a-form-model-item
+              label="计算公式"
+              prop="jsgs"
+            >
+              <a-input
+                v-model="form.jsgs"
+                :disabled="formDisabled"
+              />
+            </a-form-model-item>
+          </a-col>
+          <a-col :span="8">
+            <a-form-model-item
+              label="初始分值"
+              prop="initScore"
+            >
+              <a-input
+                v-model="form.initScore"
+                :disabled="formDisabled"
+              />
+            </a-form-model-item>
+          </a-col>
+          <a-col :span="8">
+            <a-form-model-item
+              label="最高分值"
+              prop="highScore"
+            >
+              <a-input
+                v-model="form.highScore"
+                :disabled="formDisabled"
+              />
+            </a-form-model-item>
+          </a-col>
+          <a-col :span="8">
+            <a-form-model-item
+              label="分值"
+              prop="score"
+            >
+              <a-input
+                v-model="form.score"
+                :disabled="formDisabled"
+              />
+            </a-form-model-item>
+          </a-col>
+          <a-col :span="8">
+            <a-form-model-item
+              label="加减分类型"
+              prop="addAndSubType"
+            >
+              <a-input
+                v-model="form.addAndSubType"
+                :disabled="formDisabled"
+              />
+            </a-form-model-item>
+          </a-col>
+          <a-col :span="8">
+            <a-form-model-item
+              label="计分方式"
+              prop="scoreType"
+            >
+              <a-input
+                v-model="form.scoreType"
+                :disabled="formDisabled"
+              />
+            </a-form-model-item>
+          </a-col>
+          <a-col :span="8">
+            <a-form-model-item
+              label="适用对象"
+              prop="applicableObjects"
+            >
+              <a-input
+                v-model="form.applicableObjects"
+                :disabled="formDisabled"
+              />
+            </a-form-model-item>
+          </a-col>
+          <a-col :span="8">
+            <a-form-model-item
+              label="是否启用"
+              prop="enabled"
+            >
+              <a-input
+                v-model="form.enabled"
+                :disabled="formDisabled"
+              />
             </a-form-model-item>
           </a-col>
         </a-row>

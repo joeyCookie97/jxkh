@@ -1,7 +1,13 @@
 <template>
   <div class="main-content">
-    <Tree class="tree-content" :directoryData="directoryData" />
-    <Table class="table-content" :directoryData="directoryData" />
+    <Tree
+      class="tree-content"
+      :directory-data="directoryData"
+    />
+    <Table
+      class="table-content"
+      :directory-data="directoryData"
+    />
   </div>
 </template>
 
@@ -9,6 +15,10 @@
 import Tree from "./components/tree.vue";
 import Table from "./components/table.vue";
 export default {
+  components: {
+    Tree,
+    Table,
+  },
   data() {
     return {
       directoryData: [
@@ -56,10 +66,6 @@ export default {
         }
       ],
     };
-  },
-  components: {
-    Tree,
-    Table,
   },
 };
 </script>

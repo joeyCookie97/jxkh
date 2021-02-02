@@ -1,10 +1,16 @@
 <template>
   <a-breadcrumb :routes="this.$store.state.menuData">
-    <template slot="itemRender" slot-scope="{ route, routes, paths }">
+    <template
+      slot="itemRender"
+      slot-scope="{ route, routes, paths }"
+    >
       <span v-if="routes.indexOf(route) === routes.length - 1">
         {{ route.breadcrumbName }}
       </span>
-      <router-link v-else :to="`/${paths.reverse()[0]}`">
+      <router-link
+        v-else
+        :to="`/${paths.reverse()[0]}`"
+      >
         {{ route.breadcrumbName }}
       </router-link>
     </template>

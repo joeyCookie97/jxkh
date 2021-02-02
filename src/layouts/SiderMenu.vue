@@ -10,11 +10,19 @@
       @click="onClick"
     >
       <template v-for="item in menuData">
-        <a-menu-item v-if="!item.children" :key="item.path" @click="()=> $router.push({path: item.path})">
+        <a-menu-item
+          v-if="!item.children"
+          :key="item.path"
+          @click="()=> $router.push({path: item.path})"
+        >
           <a-icon :type="item.meta.icon" />
           <span>{{ item.meta.title }}</span>
         </a-menu-item>
-        <sub-menu v-else :key="item.path" :menu-info="item" />
+        <sub-menu
+          v-else
+          :key="item.path"
+          :menu-info="item"
+        />
       </template>
     </a-menu>
   </div>
@@ -55,12 +63,6 @@ export default {
   components: {
     'sub-menu': SubMenu,
   },
-  watch: {
-    '$route.path': function(val) {
-      this.selectedKeys = this.selectedKeysMap[val]
-      this.openKeys = this.collapsed ? [] : this.openKeysMap[val]
-    }
-  },
   data() {
     // 存放所有的菜单选中数据
     this.selectedKeysMap = {}
@@ -79,6 +81,12 @@ export default {
       // 当前展开的 SubMenu 菜单项 key 数组
       openKeys: this.collapsed ? [] : this.openKeysMap[this.$route.path]
     };
+  },
+  watch: {
+    '$route.path': function(val) {
+      this.selectedKeys = this.selectedKeysMap[val]
+      this.openKeys = this.collapsed ? [] : this.openKeysMap[val]
+    }
   },
   methods: {
     // 传给面包屑当前导航

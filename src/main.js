@@ -32,7 +32,6 @@ Vue.use(Breadcrumb)
 Vue.use(Checkbox)
 
 
-
 Vue.config.productionTip = false;
 
 new Vue({

@@ -1,7 +1,10 @@
 <template>
   <div>
     <a-space>
-      <a-input-search placeholder="请输入内容查询" @change="onChange" />
+      <a-input-search
+        placeholder="请输入内容查询"
+        @change="onChange"
+      />
       <a-icon
         style="font-size: 28px; color: #1890ff; cursor: pointer"
         type="folder-add"
@@ -21,7 +24,11 @@
             class="folderStyle"
             type="folder-open"
           />
-          <a-icon v-else class="folderStyle" type="folder" />
+          <a-icon
+            v-else
+            class="folderStyle"
+            type="folder"
+          />
 
           <a-space v-if="searchValue">
             <span v-if="item.title.indexOf(searchValue) > -1">
@@ -41,25 +48,27 @@
             <a-input
               v-else
               ref="ipt"
+              v-model="item.title"
               style="width: 100px"
               size="small"
-              v-model="item.title"
-              @blur='onBlur'
-              @pressEnter='onBlur'
-            >
-            </a-input>
+              @blur="onBlur"
+              @pressEnter="onBlur"
+            />
           </a-space>
         </a-space>
-        <a-space v-if="item.title !== '默认文件夹'" style="margin-left: 10px">
+        <a-space
+          v-if="item.title !== '默认文件夹'"
+          style="margin-left: 10px"
+        >
           <a-icon
-            @click.stop="showIpt(item)"
             style="color: #1890ff"
             type="edit"
+            @click.stop="showIpt(item)"
           />
           <a-icon
-            @click="delFolder(item)"
             style="color: rgb(255, 0, 0)"
             type="delete"
+            @click="delFolder(item)"
           />
         </a-space>
       </template>

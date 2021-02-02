@@ -7,11 +7,17 @@
     @ok="addSubmit"
     @cancel="addCancel"
   >
-    <a-form class="ant-advanced-search-form" :labelCol="{ span: 7 }">
+    <a-form
+      class="ant-advanced-search-form"
+      :label-col="{ span: 7 }"
+    >
       <a-row :gutter="24">
         <a-col :span="8">
           <a-form-item label="页面编号">
-            <a-input disabled placeholder="系统自动生成" />
+            <a-input
+              disabled
+              placeholder="系统自动生成"
+            />
           </a-form-item>
         </a-col>
         <a-col :span="8">

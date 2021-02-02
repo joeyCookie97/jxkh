@@ -2,8 +2,8 @@
   <div>
     <a-layout id="components-layout-demo-custom-trigger">
       <a-layout-sider
-        :style="{ 'overflow-y': 'auto', height: '100vh' }"
         v-model="collapsed"
+        :style="{ 'overflow-y': 'auto', height: '100vh' }"
         width="256px"
         style="background-color: #1890ff"
         theme="light"
@@ -41,7 +41,7 @@
             minHeight: '280px',
           }"
         >
-          <router-view></router-view>
+          <router-view />
         </a-layout-content>
         <a-layout-footer style="text-align: center">
           <Footer />
@@ -57,16 +57,16 @@ import UserInfo from "./UserInfo";
 import Footer from "./Footer";
 import SiderMenu from "./SiderMenu";
 export default {
-  data() {
-    return {
-      collapsed: false,
-    };
-  },
   components: {
     Breadcrumb,
     Footer,
     UserInfo,
     SiderMenu,
+  },
+  data() {
+    return {
+      collapsed: false,
+    };
   },
 };
 </script>
